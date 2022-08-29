@@ -1,8 +1,6 @@
 :root { 
-    --celeste:rgb(27, 229, 236);
-    --verde:rgb(36, 228, 138);
-    --violeta:rgb(102, 21, 233); 
-
+    --oscuro:#36858A;
+    --claro:#AEFEFF;
  }
  body {  
 
@@ -12,65 +10,63 @@
 
     width: 100%;
     height: 100vh;
-    background-color: darkslateblue;
+    background-color: #072327;
     display: flex;
     justify-content: center;
     align-items: center;
  }
 .cuadrado_grande{
 
-    background-color: var(--violeta);
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     display: flex;
-
 }
 .cuadrado_celeste{
 
-background-color:  var(--celeste);
-opacity:  80%;
-width: 50%;
-height: 100%;
-display: flex;
-justify-content: center;
-color: rgb(240, 248, 255);
-
+    background-color:  var(--oscuro);
+    opacity:  80%;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgb(240, 248, 255);
 }
 .cuadrado_verde{
-background-color: var(--verde);
-width: 50%;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
+    background-color: var(--claro);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cuadrado_verde input{
 
-background-color: black;
-color: blueviolet;  
-
+    background-color: black;
+    color: azure;  
 }
+
 ::placeholder{
-
-    color: rgb(152, 6, 182);
+    color: #50BDBA;
 }
+
 .cuadrado_verde p{
 
-    color: rgb(140, 6, 250);
+    color: #36858A;
     margin-right: 32%;
+    margin-left: 10%;
 }
 
 .cuadrado_verde p:first-child{
 
     margin-right: 40%;
 }
+
 .cuadrado_verde input:last-child{
 
-    background-color: blue;
-    color: darkcyan;
+    background-color: azure;
+    color: var(--oscuro);
     height: 4vh;
     margin-top: 21%;
     border:none;
