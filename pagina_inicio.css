@@ -21,7 +21,7 @@
     height: 60%;
     display: flex;
 }
-.cuadrado_celeste{
+.cuadrado_oscuro{
 
     background-color:  var(--oscuro);
     opacity:  80%;
@@ -31,7 +31,7 @@
     justify-content: center;
     color: rgb(240, 248, 255);
 }
-.cuadrado_verde{
+.cuadrado_claro{
     background-color: var(--claro);
     width: 50%;
     height: 100%;
@@ -41,7 +41,7 @@
     align-items: center;
 }
 
-.cuadrado_verde input{
+.cuadrado_claro input{
 
     background-color: black;
     color: azure;  
@@ -51,19 +51,19 @@
     color: #50BDBA;
 }
 
-.cuadrado_verde p{
+.cuadrado_claro p{
 
     color: #36858A;
     margin-right: 32%;
     margin-left: 10%;
 }
 
-.cuadrado_verde p:first-child{
+.cuadrado_claro p:first-child{
 
     margin-right: 40%;
 }
 
-.cuadrado_verde input:last-child{
+.cuadrado_claro input:last-child{
 
     background-color: azure;
     color: var(--oscuro);
