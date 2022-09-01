@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 nav ul {
@@ -24,3 +23,15 @@ nav ul li a {
 nav ul li a:hover {
     color: azure;
 }
+
+.tprincipal td{ 
+    border: 5px solid black;
+}
+
+.tnested{ 
+    border: 5px solid black;
+}
+
+
+ 
+                            
