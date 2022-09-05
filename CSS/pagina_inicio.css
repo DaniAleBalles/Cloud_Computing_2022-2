@@ -25,7 +25,18 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    color: rgb(240, 248, 255);
+    font-size: large;
+    font-weight: 800;
+    color: var(--claro);
+}
+
+.cuadrado_oscuro img {
+    position: absolute;
+    left: 25%;
+    top : 30%;
+    display: flex;
+    width: 20%;
+    height: 40%;
 }
 .cuadrado_claro{
     background-color: var(--claro);
