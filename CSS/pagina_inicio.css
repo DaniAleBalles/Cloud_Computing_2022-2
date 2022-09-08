@@ -29,6 +29,7 @@
     justify-content: center;
     font-size: large;
     font-weight: 800;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     color: var(--claro);
 }
 
@@ -41,6 +42,7 @@
     height: 40%;
 }
 .cuadrado_claro{
+    font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: var(--claro);
     width: 50%;
     height: 100%;
@@ -51,6 +53,7 @@
 }
 
 .cuadrado_claro input{
+    font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: white;
     color: black;  
 }
@@ -73,7 +76,7 @@
 
 .cuadrado_claro button:last-child{
     background-color: var(--oscuro) ;
-    color: black;
+    color: var(--claro);
     height: 4vh;
     margin-top: 21%;
     border-radius: 10px;
