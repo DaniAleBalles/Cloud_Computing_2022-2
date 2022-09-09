@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagina_agregar_destinatario</title>
-    <link rel="stylesheet" href="CSS/pagina_agregar_moneda_style.css">
+    <title>pagina_consultar_lista_monedas</title>
+    <link rel="stylesheet" href="CSS/pagina_consultar_lista_monedas.css">
 </head>
 <body>
     <div class="container">   
         <div class="principal">
             <div class="top">
-                <p>Agregar Moneda</p> 
+                <p>Consultar Lista Moneda</p> 
                 <img src="IMG/el monograma de la desorganizada.png"  alt="Logo">
             </div>
                 <div class="info">
                     <span>Nombre De la moneda : </span>
-                    <input type="text" placeholder="Ingrese el nombre"> <br> <br>
-                    <span> Codigo de la moneda: </span>
+                    <select name="selection" id="selection">
+                        <option value="USD">USD</option>
+                        <option value="COP">COP</option>
+                        <option value="GBP">GBP</option>
+                    </select>
+                    <span> </span>
                     <input type="text" placeholder="Inserte codigo Ej:COP">  <br> <br>
                     <span> Tasa de conversion: </span>          
                     <input type="number" placeholder="Ingrese Tasa"> <br> <br>
                     <p class="button">
-                        <button class="crear" name="Crear"> Crear moneda </button>
+                        <button class="crear" name="Crear"> Otra moneda? </button>
                     </p>
                 </div>
         </div>
