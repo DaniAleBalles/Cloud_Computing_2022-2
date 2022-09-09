@@ -27,6 +27,28 @@
     justify-content: center;
     color: rgb(240, 248, 255);
 }
+
+.cuadrado_celeste button{
+    height: 10%;
+    background-color: var(--oscuro) ;
+    color: var(--claro);
+    margin-top: 0;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+.menu_anonimo{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hidden{
+    
+    height: 80%;
+    width: 100%;
+}
+
 .cuadrado_verde{
     background-color: var(--claro);
     width: 50%;

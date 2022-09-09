@@ -32,13 +32,11 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-
 }
-.top p {
-
-margin-right: 30%;
-margin-left: 45%;
-
+.top p{
+    margin-right: 25%;
+    margin-left: 35%;
+    text-align: center;
 }
 
 .info p{
@@ -62,7 +60,7 @@ margin-left: 45%;
 
 }
 .top img{
-    margin-left: 0%;
+    margin-left: 10%;
     display: flex;
     width: 10%;
     height: 100%;
@@ -74,16 +72,4 @@ margin-left: 45%;
     color: black;
     top :20%;
     border-radius: 10px;
-}
-.fecha {    
- background-color: white;
- border:1px solid black;
- color: rgba(0, 0, 0, 0.815);
-}
-
-.crear{
-    background-color: var(--claro) ;
-    color: black;
-    border-radius: 10px;
-
 }
