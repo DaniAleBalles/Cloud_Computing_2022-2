@@ -1,0 +1,86 @@
+:root { 
+    --oscuro:#36858A;
+    --claro:#AEFEFF;
+    --fondo:#072327;
+ }
+ body {  
+    margin: 0;
+ }
+ .container { 
+    width: 100%;
+    height: 100vh;
+    background-color: var(--fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+.principal{
+    background-color:  var(--oscuro);
+    opacity:  80%;
+    font-size: large;
+    font-weight: 800;
+    color: var(--claro);
+    width: 40%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.top{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.top p{
+    margin-right: 25%;
+    margin-left: 35%;
+    text-align: center;
+}
+
+.info p{
+    font-size: large;
+    align-items: center;
+    text-align: center;
+
+}
+
+.info input{
+    background-color: white;
+    color: black;  
+
+}
+
+.info{
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+
+}
+.top img{
+    margin-left: 10%;
+    display: flex;
+    width: 10%;
+    height: 100%;
+}
+
+
+.button button{
+    background-color: var(--claro) ;
+    color: black;
+    top :20%;
+    border-radius: 10px;
+}
+.fecha{
+
+margin-top: 1%;
+
+}
+.boton input{
+background-color: #072327;
+color: #AEFEFF;
+width: 10%;
+height: 10%;
+}
