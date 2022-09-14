@@ -25,13 +25,13 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    color: rgb(240, 248, 255);
+    color: black;
 }
 
 .cuadrado_celeste button{
     height: 10%;
-    background-color: var(--oscuro) ;
-    color: var(--claro);
+    background-color: var(--claro) ;
+    color: black;
     margin-top: 0;
     margin: 1%;
     border-radius: 10px;
@@ -46,6 +46,7 @@
 .hidden{    
     height: 80%;
     width: 100%;
+    color:black
 }
 
 .cuadrado_verde{
@@ -61,7 +62,7 @@
 .cuadrado_verde input{
 
     background-color: black;
-    color: azure;  
+    color: black;
 }
 
 ::placeholder{
@@ -70,7 +71,7 @@
 
 .cuadrado_verde p{
 
-    color: #36858A;
+    color: black;
     margin-right: 32%;
     margin-left: 10%;
 }
@@ -83,7 +84,7 @@
 .cuadrado_verde input:last-child{
 
     background-color: azure;
-    color: var(--oscuro);
+    color: black;
     height: 4vh;
     margin-top: 21%;
     border:none;
