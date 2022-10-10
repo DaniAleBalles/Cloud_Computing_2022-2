@@ -17,15 +17,17 @@
                 </p>            
             </div>
             <div class="cuadrado_claro">
-                <p>Correo</p>
-                <input type="text" placeholder="Inserte su Correo">
-                <p>Contraseña</p>
-                <input type="password"placeholder="Inserte su Clave">
-                <a href="pagina_principal.html">
-                    <button type="button" name="Iniciar sesion">
-                        Iniciar Sesion
-                    </button>
-                </a>
+                <form action="", method="post"></form>
+                {% csrf_token %}
+                    <p>Correo</p>
+                    <input name="correo" type="text" placeholder="Inserte su Correo">
+                    <p>Contraseña</p>
+                    <input name="contraseña" type="password"placeholder="Inserte su Clave">
+                    <a href="pagina_principal.html">
+                        <button type="button" name="Iniciar sesion">
+                            Iniciar Sesion
+                        </button>
+                    </a>
                 <a href="pagina_crear_cuenta.html">
                     <span>¿No tiene cuenta? Registrese aqui</span>
                 </a>
