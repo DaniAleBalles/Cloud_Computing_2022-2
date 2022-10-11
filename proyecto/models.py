@@ -32,11 +32,13 @@ class Usuario(models.Model):
     Direccion = models.CharField('Dirección de residencia :', max_length=150, null=False, blank=False)
     Tipo_Doc_id = models.ForeignKey(Tipo_Doc, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Documento = models.CharField('Documento :', max_length=150, null=False, blank=False)
+    Fecha_Expedicion = models.DateField('Fecha de Expedicion :', null=False, blank=False)
     Celular = models.IntegerField('Número de celular :', null=False, blank=False)
     Monto = models.IntegerField('Monto en la cuenta :', default=0 ,null=False, blank=False)
 
 class Destinatario(models.Model):
     id_Destinatario = models.AutoField(primary_key=True, null=False, unique=True)
+    Usuario_id = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Usuario_Dest = models.ForeignKey(Usuario, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Destinatario = models.CharField('Nombre del destinatario :', max_length=150, null=False, blank=False)
 
