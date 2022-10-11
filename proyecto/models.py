@@ -26,26 +26,25 @@ class Tarifas(models.Model):
 
 class Usuario(models.Model):
     id_Usuario = models.AutoField(primary_key=True, null=False, unique=True)
-    User_id = models.ForeignKey(User, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Pais_id = models.ForeignKey(Paises, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Ciudad_id = models.ForeignKey(Ciudades, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    User_id = models.ForeignKey(User, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Pais_id = models.ForeignKey(Paises, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Ciudad_id = models.ForeignKey(Ciudades, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Direccion = models.CharField('Dirección de residencia :', max_length=150, null=False, blank=False)
-    Tipo_Doc_id = models.ForeignKey(Tipo_Doc, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Documento = models.CharField('Documento :', max_lenght=150, null=False, blank=False)
+    Tipo_Doc_id = models.ForeignKey(Tipo_Doc, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Documento = models.CharField('Documento :', max_length=150, null=False, blank=False)
     Celular = models.IntegerField('Número de celular :', null=False, blank=False)
     Monto = models.IntegerField('Monto en la cuenta :', default=0 ,null=False, blank=False)
 
 class Destinatario(models.Model):
     id_Destinatario = models.AutoField(primary_key=True, null=False, unique=True)
-    Usuario_Dest = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Usuario_Dest = models.ForeignKey(Usuario, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Destinatario = models.CharField('Nombre del destinatario :', max_length=150, null=False, blank=False)
 
 class Transacciones(models.Model):
     id_Transaccion = models.AutoField(primary_key=True, null=False, unique=True)    
-    Usuario = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Usuario_Dest = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Tasa_id = models.ForeignKey(Monedas, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Tarifa_id = models.ForeignKey(Tarifas, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Usuario_dest = models.ForeignKey(Usuario, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Tasa_id = models.ForeignKey(Monedas, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Tarifa_id = models.ForeignKey(Tarifas, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Envio = models.IntegerField('Monto enviado :', null=False, blank=False)
     Destino = models.IntegerField('Monto Destino :', null=False, blank=False)
     Fecha = models.DateTimeField('Fecha y hora transacción :', null=False, blank=False)

@@ -10,7 +10,7 @@ class vst_principal():
 
 class vst_crear_usuario(CreateView):
     model= User
-    template_name= "pagina_crear_cuenta.html"
+    template_name= "pagina_agregar_moneda.html"
     form_class = Nameform
     success_url= reverse_lazy('home')
 

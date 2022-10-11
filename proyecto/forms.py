@@ -5,9 +5,10 @@ class Nameform(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'password')
+        fields = ('username', 'password', 'first_name')
         labels = {
             'username': 'Nombre de usuario',
             'password': 'Contraseña',
+            'first_name': 'puta 343',
         }
     
