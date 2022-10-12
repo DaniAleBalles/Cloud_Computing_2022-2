@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from . import dic
 # Create your models here.
 
 class Paises(models.Model):
@@ -9,16 +10,15 @@ class Paises(models.Model):
 class Ciudades(models.Model):
     id_Ciudad = models.AutoField(primary_key=True, null=False, unique=True)
     Ciudad = models.CharField('Ciudad :', max_length=150, blank=False, null=False)
-
-class Tipo_Doc(models.Model):
-    id_Tdoc = models.AutoField(primary_key=True, null=False, unique=True)
-    Tipo_Doc= models.CharField('Tipo de documento :', max_length=150, blank=False, null=False)
+    id_pais = models.ForeignKey(Paises, max_length=150, blank=False, null=True, on_delete=models.SET_NULL, db_constraint=True)
 
 class Monedas(models.Model):
     id_Moneda = models.AutoField(primary_key=True, null=False, unique=True)
     Moneda = models.CharField('Nombre de la moneda :', max_length=150, blank=False, null=False)
-    Código = models.CharField('Código de la moneda :', max_length=6, blank=False, null=False)
+    Codigo = models.CharField('Código de la moneda :', max_length=6, blank=False, null=False)
     Valor_USD = models.IntegerField('Valor en dólares :', null=False, blank=False)
+    archivo=models.BooleanField('Archivo del registro'  , blank=True,null=False, default=0)
+
 
 class Tarifas(models.Model):
     id_Tarifa = models.AutoField(primary_key=True, null=False, unique=True)
@@ -29,16 +29,15 @@ class Usuario(models.Model):
     User_id = models.ForeignKey(User, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Pais_id = models.ForeignKey(Paises, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Ciudad_id = models.ForeignKey(Ciudades, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Direccion = models.CharField('Dirección de residencia :', max_length=150, null=False, blank=False)
-    Tipo_Doc_id = models.ForeignKey(Tipo_Doc, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
-    Documento = models.CharField('Documento :', max_length=150, null=False, blank=False)
-    Fecha_Expedicion = models.DateField('Fecha de Expedicion :', null=False, blank=False)
-    Celular = models.IntegerField('Número de celular :', null=False, blank=False)
-    Monto = models.IntegerField('Monto en la cuenta :', default=0 ,null=False, blank=False)
+    Direccion = models.CharField('Dirección de residencia :', max_length=150, null=True, blank=False)
+    Documento = models.CharField('Documento :', max_length=150, null=True, blank=False)
+    Tipo_Doc= models.IntegerField(choices=dic.Documento,blank=False, null=True, default=0)
+    Fecha_Expedicion = models.DateField('Fecha de Expedicion :', null=True, blank=False)
+    Celular = models.IntegerField('Número de celular :', null=True, blank=False)
+    Monto = models.IntegerField('Monto en la cuenta :', default=0 ,null=True, blank=False)
 
 class Destinatario(models.Model):
     id_Destinatario = models.AutoField(primary_key=True, null=False, unique=True)
-    Usuario_id = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Usuario_Dest = models.ForeignKey(Usuario, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Destinatario = models.CharField('Nombre del destinatario :', max_length=150, null=False, blank=False)
 

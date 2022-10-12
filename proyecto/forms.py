@@ -1,27 +1,32 @@
 from proyecto.models import *
 from django import forms 
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm 
 
 
-class Nameform(forms.ModelForm):
+class PasswordInput(forms.DateInput):
+        input_type = 'password'
+
+class label_pais (forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        return  "%s" % obj.Pais
+
+class Nameform(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'first_name', 'last_ name', 'email', 'password')
+        fields = ('username','first_name', 'last_name', 'email','is_superuser')
         labels = {
-            'username': 'Nombre de usuario',
-            'password': 'Contraseña',
-            'first_name': 'Primer nombre',
-            'last_name': 'Apellido',
-            'email': 'Correo',
-            'password': 'Contraseña'
+            'is_superuser': 'Usted es administrador?',
         }
 
-class Usuario(forms.ModelForm):
+        
+
+class FormUsuario(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ('Direccion', 'Documento', 'Fecha_Expedicion', 'Celular')
+        fields = ('Direccion', 'Documento', 'Tipo_Doc', 'Pais_id', 'Ciudad_id', 'Fecha_Expedicion', 'Celular')
         labels = {
             'Direccion': 'Direccion residencia',
             'Documento': 'Numero de documento',
@@ -29,67 +34,63 @@ class Usuario(forms.ModelForm):
             'Celular': 'Numero de celular'
         }
 
-class Paises(forms.ModelForm):
+class FormPaises(forms.ModelForm):
 
     class Meta:
         model = Paises
-        fields =('Pais')
+        fields =('Pais',)
         labels = {
-            'Pais': 'Pais de residencia',
+            'Pais': 'Nombre del pais',
         }
 
-class Ciudades(forms.ModelForm):
+class FormCiudades(forms.ModelForm):
 
     class Meta:
         model = Ciudades
-        fields = ('Ciudad')
+        fields = ('Ciudad', 'id_pais')
         labels = {
-            'Ciudad': 'Ciudad'
+            'Ciudad': 'Ciudad',
         }
+    id_pais = label_pais(
+        queryset=Paises.objects.all(),
+        label='Pais donde esta ubicada la ciudad'
+    )
 
-class Tipo_Documento(forms.ModelForm):
-
-    class Meta:
-        model = Tipo_Doc
-        fields = ('Tipo_Doc')
-        labels = {
-            'Tipo_Doc': 'Tipo de documento',
-        }
-
-class Monedas(forms.ModelForm):
+class FormMonedas(forms.ModelForm):
 
     class Meta:
         model = Monedas
-        fields = ('Moneda', 'Código', 'Valor_USD')
+        fields = ('Moneda', 'Codigo', 'Valor_USD')
         labels = {
             'Moneda': 'Moneda',
-            'Código': 'Código moneda',
+            'Codigo': 'Codigo moneda',
             'Valor_USD': 'Valor en dólares'
         }
 
-class Tarifas(forms.ModelForm):
+class FormTarifas(forms.ModelForm):
 
     class Meta:
         model = Tarifas
-        fields = ('Tarifa')
+        fields = ('Tarifa',)
         labels = {
             'Tarifa': 'Tarifa de traansacción'
         }
 
-class Destinatarios(forms.ModelForm):
+class FormDestinatarios(forms.ModelForm):
 
     class Meta:
         model = Destinatario
-        fields = ('Destinatario')
+        fields = ('Destinatario', 'Usuario_Dest')
         labels = {
-            'Destinatario': 'Nombre de Contacto'
+            'Destinatario': 'Nombre de Contacto',
+            'Usuario_Dest': 'Usuario del destinatario'
         }
 
-class Transacciones(forms.ModelForm):
+class FormTransacciones(forms.ModelForm):
 
     class Meta:
         model = Transacciones
-        fields = ('Envio')
+        fields = ('Envio',)
         labels = {
             'Envio': 'Cantidad  enviar'
         }

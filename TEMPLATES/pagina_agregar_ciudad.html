@@ -18,6 +18,7 @@
             <form method="post", action="">
               {% csrf_token %}
               {{ form.as_p }}
+              <a href="{%url 'pais' %}"> El pais de esta ciudad no esta registrado? Registrelo</a>
               <a href="">
                   <button type="submit" name="Crear" >
                       Crear

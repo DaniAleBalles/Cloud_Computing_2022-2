@@ -11,6 +11,104 @@
     <body>
     <div class="contenedor">
         <p>PAGINA PRINCIPAL COMPUTACION EN LA NUBE</p>
+        {% if user.is_authenticated %}
+            <span> Bienvenido(a) {{user.username}} </span>
+            <a href="{%url 'cerrar' %}">
+                <span>Cerrar sesion</span>
+            </a>
+            {% if  user.is_superuser %}
+                <span>Usted accedio como Administrador(a) </span>
+                <div class="cuadrado_celeste">
+                <div class="menu_admin">
+                    <button class="administrador" name="cliente">
+                        Usuario Administrador
+                    </button> <br>
+                    <div class="hidden">
+                        <a href="{%url 'moneda' %}">
+                            <button class="anonimo" name="Anonimo">
+                                Agregar moneda
+                            </button> 
+                        </a>
+                        <a href="{%url 'monedalist' %}">
+                            <button class="anonimo" name="Anonimo">
+                                Lista de monedas
+                            </button> 
+                        </a>
+                        <a href="pagina_Agregar_moneda.html">
+                            <button class="anonimo" name="Anonimo">
+                                Editar moneda
+                            </button> 
+                        </a>
+                        <a href="pagina_Agregar_moneda.html">
+                            <button class="anonimo" name="Anonimo">
+                                Habilitar/Deshabilitar moneda
+                            </button> 
+                        </a>
+                        <a href="{%url 'pais' %}">
+                            <button class="anonimo" name="Anonimo">
+                                Agregar pais
+                            </button> 
+                        </a>
+                        <a href="{%url 'ciudad' %}">
+                            <button class="anonimo" name="Anonimo">
+                                Agregar ciudad
+                            </button> 
+                        </a>
+                        <a href="">
+                            <button class="anonimo" name="Anonimo">
+                                Editar tarifa
+                            </button> <br>  
+                        </a>
+                        <a href="pagina_consultar_transacciones.html">
+                            <button class="anonimo" name="Anonimo">
+                                Consultar transacciones
+                            </button> 
+                        </a>
+                    </a>
+                    <a href="pagina_habilitar_deshabilitar_moneda.html">
+                        <button class="anonimo" name="Anonimo">
+                            Habilitar/deshabilitar moneda
+                        </button> 
+                    </a>
+                    </div>
+                </div>
+                </div>
+            {%else %}
+                <span>Usted accedio como Cliente</span>
+                <div class="cuadrado_celeste">
+                <div class="menu_cliente" >
+                    <button class="cliente" name="cliente" href="#">
+                        Usuario Cliente
+                    </button> <br> 
+                    <div class="hidden">
+                        <span> Vistas de anonimo</span> <br>
+                        <a href="pagina_agregar_dinero_cuenta.html">
+                            <button class="anonimo" name="Anonimo">
+                                Agregar dinero
+                            </button> 
+                        </a>
+                        <a href="{%url 'destinatario' %}">
+                            <button class="anonimo" name="Anonimo">
+                                Agregar Destinatario
+                            </button> <br>  
+                        </a>
+                        <a href="{%url 'listadestinatarios' %}">
+                            <button class="anonimo" name="Anonimo">
+                                Eliminar Destinatario
+                            </button> <br>  
+                        </a>
+                        <a href="pagina_consultar_transacciones.html">
+                            <button class="anonimo" name="Anonimo">
+                                Consultar transacciones
+                            </button> 
+                        </a>
+                    </div>
+                </div>
+                </div>  
+            {%endif%}
+        {%else %}
+        <br>
+        <span> Usted accedio como Anonimo(a)</span>
         <div class="cuadrado_celeste">
             <div class="menu_anonimo">
                 <button class="anonimo" name="Anonimo" href="#">
@@ -18,7 +116,7 @@
                 </button> <br>
                 <div class="hidden">
                     <span> Vistas de anonimo</span> <br>
-                    <a href="pagina_inicio.html">
+                    <a href="{% url 'ingreso' %}">
                         <button class="anonimo" name="Anonimo">
                             Iniciar sesion
                         </button> 
@@ -30,58 +128,9 @@
                     </a>
                 </div>
             </div>
-            <div class="menu_cliente" >
-                <button class="cliente" name="cliente" href="#">
-                    Usuario Cliente
-                </button> <br> 
-                <div class="hidden">
-                    <span> Vistas de anonimo</span> <br>
-                    <a href="pagina_agregar_dinero_cuenta.html">
-                        <button class="anonimo" name="Anonimo">
-                            Agregar dinero
-                        </button> 
-                    </a>
-                    <a href="pagina_agregar_destinatario.html">
-                        <button class="anonimo" name="Anonimo">
-                            Agregar Destinatario
-                        </button> <br>  
-                    </a>
-                    <a href="pagina_consultar_transacciones.html">
-                        <button class="anonimo" name="Anonimo">
-                            Consultar transacciones
-                        </button> 
-                    </a>
-                </div>
-            </div>
-            <div class="menu_admin">
-                <button class="administrador" name="cliente">
-                    Usuario Administrador
-                </button> <br>
-                <div class="hidden">
-                    <span> Vistas de anonimo</span> <br>
-                    <a href="pagina_Agregar_moneda.html">
-                        <button class="anonimo" name="Anonimo">
-                            Agregar moneda
-                        </button> 
-                    </a>
-                    <a href="">
-                        <button class="anonimo" name="Anonimo">
-                            Editar tarifa
-                        </button> <br>  
-                    </a>
-                    <a href="pagina_consultar_transacciones.html">
-                        <button class="anonimo" name="Anonimo">
-                            Consultar transacciones
-                        </button> 
-                    </a>
-                </a>
-                <a href="pagina_habilitar_deshabilitar_moneda.html">
-                    <button class="anonimo" name="Anonimo">
-                        Habilitar/deshabilitar moneda
-                    </button> 
-                </a>
-                </div>
-            </div>
+        </div>
+        {%endif%}
+
         </div>
     </div> 
 </body>

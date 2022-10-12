@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pagina_inicio</title>
-    <link rel="stylesheet" href="{% static 'CSS/pagina_principal_style.css' %}">  
+    <link rel="stylesheet" href="{% static 'CSS/pagina_inicio_style.css' %}">  
 </head>
 <body>
     <div class="contenedor">
@@ -14,22 +14,20 @@
             <div class="cuadrado_oscuro">
                 <p>Inicio de Sesion</p>
                 <p>
-                    <img src="IMG/el monograma de la desorganizada.png" alt="Logo" > 
+                    <img src= "{% static 'IMG/el monograma de la desorganizada.png' %}" alt="Logo" > 
                 </p>            
             </div>
             <div class="cuadrado_claro">
-                <form action="", method="post"></form>
+                <form action="", method="post">
                 {% csrf_token %}
-                    <p>Correo</p>
-                    <input name="correo" type="text" placeholder="Inserte su Correo">
-                    <p>Contraseña</p>
-                    <input name="contraseña" type="password"placeholder="Inserte su Clave">
-                    <a href="pagina_principal.html">
-                        <button type="button" name="Iniciar sesion">
+                    {{ form.as_p }}
+                    <a href="">
+                        <button type="submit" name="Iniciar sesion">
                             Iniciar Sesion
                         </button>
                     </a>
-                <a href="pagina_crear_cuenta.html">
+                </form>
+                <a href="{% url 'crearcuenta' %}">
                     <span>¿No tiene cuenta? Registrese aqui</span>
                 </a>
             </div>
