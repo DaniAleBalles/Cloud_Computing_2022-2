@@ -27,7 +27,7 @@ def vst_registro(request):
             usuario = authenticate(username=usuario, password=password)
             return redirect(to='home')
         data["form"] = formulario
-    return render(request,'pagina_agregar_USUARIO.html', data )
+    return render(request,'pagina_agregar_usuario.html', data )
 
 class vst_pais(CreateView):
     model= Paises
