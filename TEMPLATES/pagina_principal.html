@@ -34,12 +34,12 @@
                                 Lista de monedas
                             </button> 
                         </a>
-                        <a href="pagina_Agregar_moneda.html">
+                        <a href="{%url 'monedalist' %}">
                             <button class="anonimo" name="Anonimo">
                                 Editar moneda
                             </button> 
                         </a>
-                        <a href="pagina_Agregar_moneda.html">
+                        <a href="{%url 'monedalist' %}">
                             <button class="anonimo" name="Anonimo">
                                 Habilitar/Deshabilitar moneda
                             </button> 
@@ -59,13 +59,8 @@
                                 Editar tarifa
                             </button> <br>  
                         </a>
-                        <a href="pagina_consultar_transacciones.html">
-                            <button class="anonimo" name="Anonimo">
-                                Consultar transacciones
-                            </button> 
-                        </a>
                     </a>
-                    <a href="pagina_habilitar_deshabilitar_moneda.html">
+                    <a href="{%url 'monedalist' %}">
                         <button class="anonimo" name="Anonimo">
                             Habilitar/deshabilitar moneda
                         </button> 
@@ -82,7 +77,7 @@
                     </button> <br> 
                     <div class="hidden">
                         <span> Vistas de anonimo</span> <br>
-                        <a href="pagina_agregar_dinero_cuenta.html">
+                        <a href="{%url 'moneda_plus' %}">
                             <button class="anonimo" name="Anonimo">
                                 Agregar dinero
                             </button> 
@@ -97,7 +92,7 @@
                                 Eliminar Destinatario
                             </button> <br>  
                         </a>
-                        <a href="pagina_consultar_transacciones.html">
+                        <a href="{%url 'transaccion' %}">
                             <button class="anonimo" name="Anonimo">
                                 Consultar transacciones
                             </button> 

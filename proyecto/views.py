@@ -20,12 +20,12 @@ def vst_registro(request):
         formulario = Nameform(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            instance = Usuario(User_id=User.objects.latest('id'))
-            instance.save()
+            #instance = Usuario(User_id=User.objects.latest())
+            #instance.save()
             usuario = formulario.cleaned_data.get('username')
             password = formulario.cleaned_data.get('password')
             usuario = authenticate(username=usuario, password=password)
-            return redirect(to='usuario')
+            return redirect(to='home')
         data["form"] = formulario
     return render(request,'pagina_agregar_USUARIO.html', data )
 
@@ -70,6 +70,9 @@ class vst_usuario(UpdateView):
     form_class = FormUsuario
     template_name='pagina_agregar_moneda.html'
     success_url= reverse_lazy('home')
+
+    def get_queryset(self):
+        return super().get_queryset()
 
 class vst_agregar_dest(CreateView):
     model= Destinatario
@@ -116,11 +119,34 @@ class vst_archi_moneda(TemplateView):
     def post(self,request,id):
         moneda= Monedas.objects.get(id_Moneda=id)
         if request.method == 'POST':
-            Monedas.archivo= True
-            Monedas.save()
+                moneda.archivo= True
+                moneda.save()
+
         return HttpResponseRedirect(self.success_url)
 
+class vst_archivar_moneda(TemplateView):
+    model = Monedas
+    template_name = 'pagina_archivar_moneda2.html'
+    success_url = reverse_lazy('home')
+
+    def post(self,request,id):
+        moneda= Monedas.objects.get(id_Moneda=id)
+        if request.method == 'POST':
+                moneda.archivo= False
+                moneda.save()
+
+        return HttpResponseRedirect(self.success_url)
+
+class vst_transacciones(TemplateView):
+    model = Monedas
+    template_name = 'pagina_consultar_transacciones.html'
+    success_url = reverse_lazy('home')
 
 
+class vst_moneda_plus(CreateView):
+    model=Transacciones
+    form_class= FormTransacciones
+    template_name= 'pagina_agregar_moneda.html'
+    success_url = reverse_lazy('home')
 
 

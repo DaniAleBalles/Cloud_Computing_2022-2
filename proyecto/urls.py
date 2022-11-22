@@ -16,5 +16,8 @@ urlpatterns = [
     path('moneda',vst_moneda.as_view(), name='moneda'),    
     path('monedalist/',vst_list_moneda.as_view(), name='monedalist'),
     path('monedaupd/<int:pk>',vst_upd_moneda.as_view(), name='editar'),
-    path('monedaarchi/<id>',vst_archi_moneda.as_view(), name='archivar')
+    path('monedaarchi/<id>',vst_archi_moneda.as_view(), name='archivar'),
+    path('monedaarchivar/<id>',vst_archivar_moneda.as_view(), name='archivarno'),
+    path('transaccion/',vst_transacciones.as_view(), name='transaccion'),
+    path('transacciones/',vst_moneda_plus.as_view(), name='moneda_plus')
 ]

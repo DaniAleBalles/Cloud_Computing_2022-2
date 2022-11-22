@@ -15,17 +15,25 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #50BDBA;
+    color: rgb(36, 250, 118);
+    margin: 0;
+    border: #AEFEFF solid 1px solid;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0,0,0, 0.5)
+      ), url(/wallhaven-zygeko.jpg)
+    
  }
 .cuadrado_celeste{
 
-    background-color:  var(--oscuro);
+    background-color:black;
     opacity:  80%;
     width: 95%;
     height: 100%;
     display: flex;
     justify-content: center;
-    color: black;
+    color: rgb(36, 250, 118);
+    border: #AEFEFF solid;
 }
 
 .cuadrado_celeste button{
@@ -40,6 +48,20 @@
 .menu_anonimo{
     display: flex;
     flex-direction: column;
+    border: #50BDBA solid;
+
+}
+.menu_cliente{
+    display: flex;
+    flex-direction: column;
+    border: #50BDBA solid;
+
+}
+.menu_cliente{
+
+    display: flex;
+    flex-direction: column;
+    border: #50BDBA solid;
 
 }
 
@@ -47,6 +69,7 @@
     height: 80%;
     width: 100%;
     color:black
+    
 }
 
 .cuadrado_verde{
@@ -89,4 +112,37 @@
     margin-top: 21%;
     border:none;
     border-radius: 3px;
+}
+
+.anonimo{
+
+    cursor: pointer;
+}
+
+.hidden a{
+
+    cursor: pointer;
+}
+.cliente{
+
+    cursor: pointer;
+}
+
+.menu_cliente .hidden a{
+
+    cursor:pointer
+}
+.administrador{
+
+    cursor: pointer;
+}
+
+.administrador .hidden a{
+
+    cursor: pointer;
+}
+.tituloprincipal{
+
+    font-size: 125%;
+    border: #AEFEFF solid;
 }

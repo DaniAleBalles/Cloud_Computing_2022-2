@@ -1,8 +1,11 @@
+from tkinter import Widget
 from proyecto.models import *
 from django import forms 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class PasswordInput(forms.DateInput):
         input_type = 'password'
@@ -10,6 +13,14 @@ class PasswordInput(forms.DateInput):
 class label_pais (forms.ModelChoiceField):
     def label_from_instance(self, obj):
         return  "%s" % obj.Pais
+
+class label_dest (forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        return  "%s" % obj.username
+
+class label_moneda (forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        return  "%s" % obj.Moneda
 
 class Nameform(UserCreationForm):
 
@@ -32,6 +43,9 @@ class FormUsuario(forms.ModelForm):
             'Documento': 'Numero de documento',
             'Fecha_Expedicion': 'Fecha expedicion documento',
             'Celular': 'Numero de celular'
+        }
+        widgets = {
+            'Fecha_Expedicion': DateInput()
         }
 
 class FormPaises(forms.ModelForm):
@@ -83,14 +97,25 @@ class FormDestinatarios(forms.ModelForm):
         fields = ('Destinatario', 'Usuario_Dest')
         labels = {
             'Destinatario': 'Nombre de Contacto',
-            'Usuario_Dest': 'Usuario del destinatario'
         }
+
+    Usuario_Dest = label_dest(
+        queryset= User.objects.all(),
+        label= 'Usuario del destinatario'
+    )
 
 class FormTransacciones(forms.ModelForm):
 
     class Meta:
         model = Transacciones
-        fields = ('Envio',)
+        fields = ('Envio', 'Tasa_id')
         labels = {
-            'Envio': 'Cantidad  enviar'
+            'Envio': 'Cantidad  a agregar'
         }
+    Tasa_id = label_moneda(
+        queryset= Monedas.objects.all(),
+        label= 'moneda'
+
+    )
+    
+

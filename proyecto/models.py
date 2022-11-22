@@ -16,7 +16,7 @@ class Monedas(models.Model):
     id_Moneda = models.AutoField(primary_key=True, null=False, unique=True)
     Moneda = models.CharField('Nombre de la moneda :', max_length=150, blank=False, null=False)
     Codigo = models.CharField('Código de la moneda :', max_length=6, blank=False, null=False)
-    Valor_USD = models.IntegerField('Valor en dólares :', null=False, blank=False)
+    Valor_USD = models.FloatField('Valor en dólares :', null=False, blank=False)
     archivo=models.BooleanField('Archivo del registro'  , blank=True,null=False, default=0)
 
 
@@ -38,7 +38,7 @@ class Usuario(models.Model):
 
 class Destinatario(models.Model):
     id_Destinatario = models.AutoField(primary_key=True, null=False, unique=True)
-    Usuario_Dest = models.ForeignKey(Usuario, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
+    Usuario_Dest = models.ForeignKey(User, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Destinatario = models.CharField('Nombre del destinatario :', max_length=150, null=False, blank=False)
 
 class Transacciones(models.Model):
@@ -47,6 +47,6 @@ class Transacciones(models.Model):
     Tasa_id = models.ForeignKey(Monedas, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Tarifa_id = models.ForeignKey(Tarifas, null=True, blank=False, on_delete=models.SET_NULL, db_constraint=True)
     Envio = models.IntegerField('Monto enviado :', null=False, blank=False)
-    Destino = models.IntegerField('Monto Destino :', null=False, blank=False)
-    Fecha = models.DateTimeField('Fecha y hora transacción :', null=False, blank=False)
+    Destino = models.IntegerField('Monto Destino :', null=True, blank=True)
+    Fecha = models.DateTimeField('Fecha y hora transacción :', null=True, blank=True)
 
